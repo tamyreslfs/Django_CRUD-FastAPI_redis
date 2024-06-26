@@ -1,0 +1,36 @@
+# Dockerfile para FastAPI
+FROM python:3.10
+
+# Definir o diretório de trabalho
+WORKDIR /app
+
+# Copiar e instalar dependências
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar o restante da aplicação
+COPY . /app/
+
+# Expor a porta que o FastAPI usará
+EXPOSE 8000
+
+# Comando para iniciar o servidor FastAPI
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Dockerfile para FastAPI
+FROM python:3.10
+
+# Definir o diretório de trabalho
+WORKDIR /app
+
+# Copiar e instalar dependências
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar o restante da aplicação
+COPY . /app/
+
+# Expor a porta que o FastAPI usará
+EXPOSE 8000
+
+# Comando para iniciar o servidor FastAPI
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
